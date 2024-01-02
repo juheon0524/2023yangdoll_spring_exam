@@ -1,0 +1,79 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.HashSet"%>
+<%@page import="java.util.Set"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
+<h3>최근본상품</h3>
+<%
+   List<String> listCart= (List<String>)session.getAttribute("sangpumList");
+   
+   int listLength = listCart == null? 0: listCart.size();
+%>
+
+<p>최근본 상품의 개수 : <%=listLength %></p>
+<ul>
+<% 
+   for(int i = 0; i < listLength; i= i+1){
+      out.print("<li>최근본 상품 : " + listCart.get(i)+ "</li>");
+   }
+%>
+   
+</ul>
+<hr />
+
+<%
+   
+   Set<String> setCart = null;
+   if( listLength != 0){
+      setCart= new HashSet<String>(listCart);
+   
+   
+      int setLength = setCart == null? 0: setCart.size();
+   %>
+   <p>중복제거 상품의 개수 : <%=setLength %></p>
+   <ul>
+   <% 
+      Iterator<String> iter = setCart.iterator();
+      while(iter.hasNext()){
+         out.print("<li>최근본 상품 : " + iter.next()+ "</li>");
+      }
+   }
+%>
+   
+</ul>
+<hr />
+
+<%
+   Map<String , Integer> mapCart = new HashMap<String , Integer>();
+   if(setCart != null ){
+      Iterator<String> iter2 = setCart.iterator();
+      while(iter2.hasNext()){
+         String sangpumName = iter2.next();
+         int count = 0;
+         for( int i = 0; i < listLength; i+=1){
+            if( sangpumName.equals(listCart.get(i))){
+               count += 1;
+            }
+         }
+         mapCart.put(sangpumName, count);
+      }
+      int mapSize =  mapCart.size();
+      
+   %>
+   
+   <p>중복제거 상품의 개수 및 조회수  : <%=listLength %></p>
+   <ul>
+   <% 
+      List<String> duplDelList = new ArrayList<String>(setCart);
+      for(int i = 0; i < mapSize; i= i+1){
+         String key = duplDelList.get(i);
+         out.print("<li>최근본 상품 : " + key + " => " + mapCart.get(key) + "</li>");
+      }
+   }
+   %>
+   
+</ul>

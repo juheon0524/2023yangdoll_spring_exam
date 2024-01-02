@@ -1,0 +1,3 @@
+select * from members => id, 메서드 getAllMember()
+select * from members where memId = #{memId} => id, 메서드 getAllMember(String memId)
+update members set memPassword = #{memPassword} where memId=#{memId} => id, 메서드 getAllMember(MemberVO vo)

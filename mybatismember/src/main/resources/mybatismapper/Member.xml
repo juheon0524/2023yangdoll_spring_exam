@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- <mapper namespace="kr.co.juheon.memberNs"> -->
+<mapper namespace="memberNs">
+  	<select id="selectMemberId" parameterType="string"  resultType="MemVo">
+  		select * from members where memId= #{memId}
+  	</select>
+  	<select id="selectMemberAll" resultType="MemVo">
+  		select * from members
+  	</select>
+  	<insert id="insertMember" parameterType="MemVo">
+  		insert into members values(#{memId}, #{memPassword}, #{memName}, #{email}, #{postCode}, #{detailAddress}, sysdate )
+  	</insert>
+  	<delete id="deleteMember" parameterType="String">
+  		delete from members where memId = #{memId}
+  	</delete>
+  	<update id="updateMember" parameterType="MemVo">
+  		update members set memPassword = #{memPassword}, memName = #{memName}, email = #{email} where memId = #{memId}
+  	</update>
+</mapper>

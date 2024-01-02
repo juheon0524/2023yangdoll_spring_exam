@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.juheon.Member">
+	<select id="getMember" parameterType="string" resultType="Mvo">
+		select * from members where memId = #{memId}
+	</select>
+
+	<select id="updateMember" parameterType="Mvo">
+		update members set memPassword = #{memPassword} where memId=#{memId}
+	</select>
+	
+	<select id="getAllMember" resultType="Mvo">
+		select * from members
+	</select>
+	
+	<select id="getMemberForEach" resultType="Mvo" parameterType="list">
+		select * from members mem
+		<where>
+			<foreach item="item" index="index" collection="list" open="postCode in (" separator="," close=")">
+				#{item}
+			</foreach>
+		</where>
+	</select>
+</mapper>
