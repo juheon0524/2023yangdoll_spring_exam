@@ -1,0 +1,18 @@
+<%@page import="java.util.Date"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+	Date now = new Date();
+	String text = "나의 살던 고향은 꽃피는 산골";
+%>
+	<header>
+		<h1>이 내용은 헤더에 들어가는 애용을 조각화 한 것입니다.</h1>
+		<h1>이 내용은 헤더에 들어가는 애용을 조각화 한 것입니다.</h1>
+	</header>
