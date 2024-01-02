@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="com.juheon.user.service.Ccccc" id="ccccc">
+		<property name="driver" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="password" value="juheon"></property>
+		<property name="url" value="qweerttt..."></property>
+		<property name="numData" value="12"></property>
+	</bean>
+	
+	<bean class="com.juheon.user.service.Bbbbb" id="bbbbb">
+		<constructor-arg ref="ccccc"></constructor-arg>
+	</bean>
+	
+	<bean class="com.juheon.user.service.Aaaaa" id="aaaaa">
+		<description>Aaaaa클래스가 세터메서드를 통해서 Bbbbb클래스를 주입받는다.</description>
+		<property name="obj" ref="bbbbb"></property>
+	</bean>
+
+</beans>
