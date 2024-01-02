@@ -1,0 +1,41 @@
+Java SE => standard edition
+      EE => enterprise edition
+      MZ => micro edition
+
+
+
+
+ed0cb41750d5aad53a7c485e7709dab6bc15d2655f8e7992832781d4608fc83bb814822f1e784bc3e235adb421b4c53881a07a4d1101ac7ea8d9ff3eb3d8ebb9 *apache-tomcat-10.1.11-windows-x64.zip
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="${encoding}">
+<title>Insert title here</title>
+</head>
+<body>
+${cursor}
+</body>
+</html>
+
+
+클래스는 타입이다 => 사용자가 정의한 타입
+
+변수 ---- 기본타입(단일자료) => 자바에서 약속되어있는 키워드 사용 (소문자로시작,자두색)
+	사용자정의타입(묶음자료)
+
+
+static
+4byte
+=============================================
+stack       	|      heap(사용자 정의타입 실제 자료가 존재)
+		|
+k(200)=4byte	|      57630번지에서 만들어짐      "yang"
+kk(125.5)=8byte	|
+sk(57630 데이터	|
+의주소)=4byte	|
+		|
+		|

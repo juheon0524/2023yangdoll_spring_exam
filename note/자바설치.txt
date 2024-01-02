@@ -1,0 +1,13 @@
+자바 다운로드 순서
+1.https://www.eclipse.org/downloads/     ====> File: eclipse-jee-2023-06-R-win32-x86_64.zip
+
+2.https://tomcat.apache.org/download-10.cgi
+
+
+한국어설정
+1.window -> preferences -> general -> workspace -utf8
+2.window -> preferences -> general -> editors -> spelling -utf8
+3.window -> preferences -> web 안에 3개 수정
+
+
+server들어가서 아까깔았던 라이브서버 적용

@@ -1,0 +1,55 @@
+-오라클 서버접속
+sys / java1234 롤은 sysdba
+호스트이름 :  오라클이 설치된 컴퓨터의 아이피주소 또는 도메인명
+
+
+
+-계정 만들기
+create user juheon identified by juheon
+    default TABLESPACE mytestsp 
+    TEMPORARY TABLESPACE temp 
+    QUOTA 0 ON system 
+    QUOTA 0 ON sysaux
+    QUOTA 50m ON mytestsp;
+
+
+
+
+--사원 정보 테이블
+
+create table employees(
+    empNo number(6,0),
+    irum varchar2(37),
+    enail varchar2(120),
+    birth date,
+    postCode varchar2(5),
+    detailAdd varchar2(150),
+    regiDate date,
+    department VARCHAR2(3),
+    jobCode VARCHAR2(2)
+    
+)
+
+
+
+
+C:\jh\workspace\java\insa
+
+
+테스트 중심의 개발 방법에 따라서 개발할 때
+하나의 테이블이 만들어지면
+자바프로그램에서 기본적으로 생성되어야 할 것들(컨트롤러는나중에)
+-테이블명Test클래스
+-테이블명VO클래스    =======> 	테이블의 구조와 같은 필드를 선언한다.(접근지정자는 private) => DBMS의 자료타입과 java의 자료타입은 다르다.
+				varchar2 => String
+				number(2), number(5,0), [number(6, -3)] => Int(기본) 또는 Integer(객체타입)
+				number(11) => long 또는 Long
+				number(5,2) => double 또는 Double
+				Date => String(권장), java.util.Date, java.sql.Date
+-테이블명Service인터페이스
+-테이블명Service인터페이스를 구현하는 클래스 => 테이블명 ServiceImpl클래스
+-테이블명 DAO인터페이스
+-테이블명 DAO인터페이스를 구현하는 클래스 => 테이블명DAOImpl 클래스
+
+
+

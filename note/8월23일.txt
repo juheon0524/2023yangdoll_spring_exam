@@ -1,0 +1,33 @@
+빈 =>Spring Bean( 스프링이 관리하는 객체)  ,  Application Context
+
+메뉴판 등록    => 	1. XML로 등록  
+		2. Annotation
+		 => 2-1 패키지 지정 (XML 에서 실행한다. src -> main -> webapp 				-> WEB-INF -> spring -> root-context.xml)
+		      2-2 @Componant => Service , Repagitory, Controller
+		3. Java Class (설정 정보 Class => @Configlation)
+
+@RequestMapping => 요청경로 매칭 Class, Method둘다사용가능
+
+Model => A에서 만든 데이터를 B에서 사용하려면 A를 K로 담아서 B에서 꺼내쓴다. 
+	=> 집어 넣을떄 addAttribute("K", 200)
+	=> 꺼내쓸떄 ${K}
+
+===========================================================
+
+Servlet 	=> Network(HTTP) 기반 라이브러리
+	=> 몇개의 Class
+	     1. (HTTP)Request
+	     2. (HTTP)Response
+	     3. (HTTP)Session
+	     4. Cookie
+
+===========================================================
+JSP 구성요소
+1. 표현 언어
+2. 내장 객체
+3. 정적인 데이터
+4. 표준 액션 테그(자주 사용하진 않지만 알고있으면 좋다.)
+
+
+
+

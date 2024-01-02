@@ -1,0 +1,9 @@
+static nested class
+
+맴버이너클래스(member inner class)
+로컬이너클래스(local inner class)
+익명이너클래스(annymous inner class) ==> ramda
+
+메소드 참조(람다를 축약한 것)
+- 정적메소드 => 클래스 :: 메소드
+- 인스턴스메소드 => 참조변수 :: 메소드

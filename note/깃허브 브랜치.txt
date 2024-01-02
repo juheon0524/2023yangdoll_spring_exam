@@ -1,0 +1,13 @@
+git clone -b new_feature https://github.com/xtring/project.git  : 특정 branch만 clone 하기
+
+
+git branch -m featureK      : brach 생성
+git brach --list       : local branch list
+git branch -r               : 원격 branch list
+git branch -d <branch_name> : branch 삭제
+
+git push --set-upstream origin featureK  : 생성한 branch를 origin Repository에 push하기
+
+git add .
+git commit -m "XXXX"
+git push -u origin featureK

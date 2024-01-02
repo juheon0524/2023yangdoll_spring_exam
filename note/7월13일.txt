@@ -1,0 +1,27 @@
+file:///C:/jh/workspace/front/01html/DAY03/aaa.jsp?email=aaa%40naver.com&gender=man&hobby=spt&hobby=mus&pwd=yangdoll&irum=%EC%96%91%EC%9A%B0%EC%98%81
+
+
+
+http://127.0.0.1:5500/DAY04/aaa.jsp?irum=%EA%B0%80%EB%82%98%EB%8B%A4&memId=qwert&memPwd=qwertyuiop&memBir=2023-07-03&memAddr=%EA%B6%8C%EC%84%A0%EB%8F%99&memEmail=aaa%40daum.net&gender=man&cart=ele&cart=spt
+
+
+http://127.0.0.1:5500/DAY04/aaa.jsp?irum=%EA%B0%80%EB%82%98%EB%8B%A4&memId=qwert&memPwd=qwertyuiop&memBir=2023-07-03&memAddr=%EA%B6%8C%EC%84%A0%EB%8F%99&memEmail=aaa%40daum.net&gender=man&cart=ele&cart=spt
+
+웹문서에서 작업대상을 선택하고 => 검색을 통해서 해결할 수 없다.
+그 대상을 원하는 모양으로 꾸미고 => 검색을 통해서 해결할 수 있다.
+
+작업대상 {
+  꾸며주는 내용 => 이 성질을 이렇게 바꾼다....
+}
+
+ex) p {
+     color:yellow;
+ }
+
+작업 대상 선택
+기호(특수문자)가 가진 의미를 잘 파악
+- #,	.,	공백,	>,	: ...
+
+* {초기화할 속성과 값들}
+> 모든 엘리먼트들을 동일한 조건으로 초기화 할 때(가장 간단한 방법으로) 사용한다.
+  일반적으로 여백(안쪽, 바깥쪽, 글자들간의 여백등)과 글자크기, 리스트모양, 링크모양 ...

@@ -1,0 +1,10 @@
+1. Spring legacy project 생성 (Spring MVC Project 체크)
+
+2. Properties => Project Facets => Runtime Apachi Tomcat 생성
+
+3. pom.xml 수정 
+
+4. web.xml 버전 수정  <web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                       		http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"> ====> Servers 에 web.xml에 나와있음

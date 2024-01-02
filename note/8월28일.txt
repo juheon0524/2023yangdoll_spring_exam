@@ -1,0 +1,74 @@
+http://localhost:8888/mvcboard/BoardList.naver
+
+
+https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=qwert
+
+
+select * from
+	(select 	rownum as rnum,BOARD_NUM,BOARD_NAME,BOARD_SUBJECT,BOARD_CONTENT,
+		BOARD_FILE,BOARD_RE_REF,BOARD_RE_LEV,BOARD_RE_SEQ,BOARD_READCOUNT,BOARD_DATE 
+			from (select * from board order by BOARD_RE_REF desc,BOARD_RE_SEQ asc) ) 
+where rnum>=? and rnum<=?
+
+=======================================================================
+순서
+
+브라우저에서 요청(get방식) http://localhost:8888/
+=> web.xml =>  <welcome-file>index.jsp</welcome-file>  http://localhost:8888/index.jsp 페이지를 응답
+
+응답페이지에서 <a href="./BoardList.bo">계시판</a> 를 클릭해서 계시판 보기( http://localhost:8888/BoardList.bo)를 요청(get방식의 요청)
+=> web.xml => url매핑을 통해서 <servlet-class>net.board.controller.BoardFrontController</servlet-class> 프로그램을 실행(doGet메서드)
+	=> doProcess(request, response)를 호출
+		- uri("/BoardList.bo"을 의미)를 구하고 context.path(""을 의미)를 구한다.
+		- uri에서 command("/BoardList.bo")를 얻어낸다. uri.substring( context.path.length() ===> 0 ) => uri.substring(0) == uri에 있던 값과 동일
+		- command와 같은 문자열을 if 구문을 이용해서 찾는다.
+			Action action = null;
+			ActionForward forward = null; => 다음 수행할 경로를 갖는 필드와 리다이렉트 유무를갖는 논리형 필드
+			if (command.equals("/BoardList.bo")) {
+				action = new BoardListAction();
+				try {
+					forward = action.execute(request, response);
+						DAO에게 일을 시키고 응당페이지에 필요한 자료를 request영역에 속성으로 넣어주고
+						리다이렉트 또는 포워딩 관련된 정보와 경로(./board/qna_board_list.jsp)를 반환한다.
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+
+			if (forward.isRedirect()) {
+				response.sendRedirect(forward.getPath());
+			} else {
+				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
+				dispatcher.forward(request, response); => ./board/qna_board_list.jsp로 포워딩
+			}
+		-./board/qna_board_list.jsp가 동작을 한다.
+			- list의 개수만큼 반복해서 자료를 나타내주는데...
+			  번호, 제목, 작성자, 작성일, 조회수를 하나의 tr로 묶어서 나타내주고...
+
+			- 이전, 페이지 리스트, 다음 페이지를 상황에 따라서 적당하게 나타내주고
+
+			-글 쓰기(새 게시글 쓰기) 링크를 나타내준다.
+
+<a href="./BoardWrite.bo">[글쓰기]</a>를 클릭하면 => 브라우저의 주소 http://localhost:8888/BoardWrite.bo을 요청했다.
+=> web.xml => bo와 매핑된 서블릿(BoardFrontController)의 doGet(request, response) 메서드를 호출 => doProcess(request, response)넘어간다.
+command => "/BoardWrite.bo"
+if else if 구문에서 조건에 맞는 것을 찾아 수행. => 단순하게 입력 화면을 나타내는 jsp파일로 포워딩(브라우저의 주소는 변하지 않는다) 해준다.
+	=> view 파일에서 계시판 관련된 내용을 작성하고 등록 버튼을 클릭 (forn action ="/BoardAddAction.bo" 의 psot방식으로 요청이 이루어진다.)
+
+=> web.xml => .bo와 매핑된 서블릿(BoardFrontController)의 doGet(request, response) 메서드를 호출 => doProcess(request, response)넘어간다.
+command = /BoardAddAction.bo
+if else if 구문에서 조건에 맞는 것을 찾아 수행. => 
+
+
+
+http://localhost:8888/BoardWrite.bo <= 글쓰기를 선택했을 때 
+http://localhost:8888/BoardDetailAction.bo?num=11 <= 상세글 보기(제목을 클릭했을 떄)
+http://localhost:8888/BoardList.bo?page=2 <= 특정페이지의 목록 보기 또는 이전 이후 페이지 목록보기
+
+
+
+
+
+
+
+
